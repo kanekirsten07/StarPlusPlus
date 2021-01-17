@@ -6,3 +6,4 @@ CmakeCache.txt
 CmakeFiles/
 .vs/
 MakeFile
+out/
