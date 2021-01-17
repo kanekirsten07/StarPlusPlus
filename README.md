@@ -10,10 +10,11 @@ From the StarPlusPlus directory
 3. You may need to follow these instructions to get SSH working on WSL2 https://jeetblogs.org/post/sshing-into-a-windows-wsl-linux-subsystem/
 
 ## VCPKG on WSL2 setup
-1. Follow the instructions on https://github.com/microsoft/vcpkg#installing-linux-developer-tools
+1. Follow the instructions on https://github.com/microsoft/vcpkg#installing-linux-developer-tools . For now clone vcpkg to your home directory (will be fixed in a later version)
 2. Follow the instructions for https://github.com/microsoft/vcpkg#quick-start-unix
 3. Add the following to you `~/.bashrc` file: `VCPKG_TOOLCHAIN_PATH=<vcpkg install path>`
-4. You make need to run `sudo apt-get install pkg-config gperf`
+4. You may need to run `sudo apt-get install pkg-config gperf`
+5. You may need to run `sudo apt install -y libzstd-dev`
 
 ## Install Dependencies in WSL2
 1. `vcpkg install proxygen`
