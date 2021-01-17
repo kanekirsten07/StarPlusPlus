@@ -1,6 +1,11 @@
-To generate projects, run:
+## Generate the project
 
-`cmake CMakeLists.txt -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake`
+1. From Visual Studio, clone the repo
+2. Select Linux as target (WSL2)
+
+## Building
+1. Select `WSL-GCC-Debug` as the configuration
+2. Build `StarPPServer`
 
 From the StarPlusPlus directory
 
