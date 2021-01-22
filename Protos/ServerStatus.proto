@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package = admin;
+
+message ServerStatus
+{
+    optional bool serverRunning = 1;
+}

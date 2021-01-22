@@ -7,3 +7,5 @@ CmakeFiles/
 .vs/
 MakeFile
 out/
+.vscode
+build/
