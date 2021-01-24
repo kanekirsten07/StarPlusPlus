@@ -36,14 +36,15 @@ function(refresh_model ARTIFACT SOURCE_DIR DEST_DIR)
 
     # Create the custom target that 
     add_custom_target(
-        REFRESH_MODEL_${ARTIFACT}
+        RunProtoc-${ARTIFACT}
         COMMAND ${PROTOBUF_COMPILER} --proto_path=${SOURCE_DIR} --cpp_out=${DEST_DIR} ${PROTOS_LIST}
+        COMMENT "Running: ${PROTOBUF_COMPILER} --proto_path=${SOURCE_DIR} --cpp_out=${DEST_DIR} ${PROTOS_LIST}"
     )
 
     add_dependencies(
         ${ARTIFACT}
 
-        REFRESH_MODEL_${ARTIFACT}
+        RunProtoc-${ARTIFACT}
     )
 endfunction()
 
