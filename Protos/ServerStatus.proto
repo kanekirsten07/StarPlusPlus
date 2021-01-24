@@ -1,8 +1,8 @@
-syntax = "proto2";
+syntax = "proto3";
 
-package = admin;
+package admin;
 
 message ServerStatus
 {
-    optional bool serverRunning = 1;
+    bool serverRunning = 1;
 }

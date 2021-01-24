@@ -5,6 +5,8 @@
 #include <glog/logging.h>
 #include <proxygen/httpserver/HTTPServer.h>
 
+//#include <generated/protos/ServerStatus.pb.h>
+
 #include "http/Controller.h"
 
 //Commandline arguments

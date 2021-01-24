@@ -13,4 +13,6 @@ target_include_directories(StarPPServer PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
         $<INSTALL_INTERFACE:include/>
     )
+
 target_link_libraries(StarPPServer PRIVATE proxygen::proxygen proxygen::proxygenhttpserver)
+target_link_libraries(StarPPServer PRIVATE StarPPServer-Protos)
