@@ -5,9 +5,11 @@
 #include <glog/logging.h>
 #include <proxygen/httpserver/HTTPServer.h>
 
-//#include <generated/protos/ServerStatus.pb.h>
-
 #include "http/Controller.h"
+
+#include <google/protobuf/util/json_util.h>
+
+#include <protos/ServerStatus.pb.h>
 
 //Commandline arguments
 DEFINE_int32(http_port, 8080, "Port to listen on with HTTP protocol");
@@ -26,6 +28,11 @@ std::unique_ptr<http::Controller> CreateController()
     //Simple get request
     //Example: http://localhost:8080/helloWorld
     controller->get("/helloWorld", [](std::unique_ptr<proxygen::HTTPMessage>& req, proxygen::ResponseBuilder& responseBuilder) {
+        admin::ServerStatus status;
+        status.set_serverrunning(true);
+
+
+        
         responseBuilder.body("Hello World");
     });
 

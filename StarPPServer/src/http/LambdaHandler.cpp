@@ -14,7 +14,7 @@ namespace
 };
 
 void LambdaHandler::onRequest(std::unique_ptr<proxygen::HTTPMessage> req) noexcept {
-    proxygen::ResponseBuilder builder(downstream_);
+    proxygen::ResponseBuilder builder(getDownstream());
     
 
     auto& url = req->getURL();
@@ -37,6 +37,7 @@ void LambdaHandler::onRequest(std::unique_ptr<proxygen::HTTPMessage> req) noexce
 
     
     builder.send();
+    proxygen::ResponseBuilder(downstream_).sendWithEOM();
 }
 
 void LambdaHandler::onBody(std::unique_ptr<folly::IOBuf> body) noexcept {
@@ -44,7 +45,7 @@ void LambdaHandler::onBody(std::unique_ptr<folly::IOBuf> body) noexcept {
 }
 
 void LambdaHandler::onEOM() noexcept {
-    proxygen::ResponseBuilder(downstream_).sendWithEOM();
+    //proxygen::ResponseBuilder(downstream_).sendWithEOM();
 }
 
 void LambdaHandler::onUpgrade(proxygen::UpgradeProtocol /*protocol*/) noexcept {
