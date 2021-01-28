@@ -11,6 +11,8 @@
 
 #include <protos/ServerStatus.pb.h>
 
+#include "util/ServerStats.h"
+
 //Commandline arguments
 DEFINE_int32(http_port, 8080, "Port to listen on with HTTP protocol");
 DEFINE_string(ip, "localhost", "IP/Hostname to bind to");
@@ -27,17 +29,20 @@ std::unique_ptr<http::Controller> CreateController()
 
     //Simple get request
     //Example: http://localhost:8080/helloWorld
-    controller->get("/helloWorld", [](std::unique_ptr<proxygen::HTTPMessage>& req, proxygen::ResponseBuilder& responseBuilder) {
+    
+    controller->get("/admin", [](std::unique_ptr<proxygen::HTTPMessage>& req, proxygen::ResponseBuilder& responseBuilder) {
         admin::ServerStatus status;
-        status.set_serverrunning(true);
-
-
-        
-        responseBuilder.body("Hello World");
+        status.set_starboundserverrunning(ServerAdmin::ServerStats::getIsStarboundServerRunning());
+        responseBuilder.status(200, "Server Health Dashboard");
+        //responseBuilder.header("Server Health");
+        responseBuilder.body("Server running \n");
+        responseBuilder.body(status.starboundserverrunning());
     });
 
     return controller;
 }
+
+
 
 int main(int argc, char* argv[])
 {

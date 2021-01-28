@@ -4,5 +4,5 @@ package admin;
 
 message ServerStatus
 {
-    bool serverRunning = 1;
+    bool starboundServerRunning = 1;
 }
