@@ -11,6 +11,6 @@ add_subdirectory(Protos)
 add_subdirectory(StarPPServer)
 
 # c++ standard
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
